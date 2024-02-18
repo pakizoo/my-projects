@@ -1,0 +1,75 @@
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message app</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    #message-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+    #message-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px;
+    }
+    .message {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+    #message-input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+    }
+    #send-button {
+      width: 30%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;margin-top: 10px;margin-left: 200px;
+    }
+  </style>
+</head>
+<body>
+<div id="message-container">
+  <ul id="message-list"></ul>
+  <input type="text" id="message-input" placeholder="Type your message...">
+  <button id="send-button">Send</button>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const messageList = document.getElementById('message-list');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    sendButton.addEventListener('click', function () {
+      const messageText = messageInput.value.trim();
+      if (messageText !== '') {
+        const messageItem = document.createElement('li');
+        messageItem.classList.add('message');
+        messageItem.textContent = messageText;
+        messageList.appendChild(messageItem);
+        messageInput.value = '';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
